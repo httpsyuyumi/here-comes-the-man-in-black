@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trigger Video</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* tela em branco */
+  }
+  #inputBox {
+    padding: 10px;
+    font-size: 18px;
+    width: 300px;
+  }
+  video {
+    display: none; /* começa escondido */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+  }
+</style>
+</head>
+<body>
+
+<input type="text" id="inputBox" placeholder="Digite algo...">
+<video id="videoPlayer" controls>
+  <source src="seu-video.mp4" type="video/mp4">
+  Seu navegador não suporta o vídeo.
+</video>
+
+<script>
+  const inputBox = document.getElementById('inputBox');
+  const videoPlayer = document.getElementById('videoPlayer');
+
+  inputBox.addEventListener('keyup', function(event) {
+    const triggerText = "HERE COMES THE MAN IN BLACK";
+    if (inputBox.value.toUpperCase() === triggerText) {
+      videoPlayer.style.display = "block"; // mostra o vídeo
+      videoPlayer.play(); // toca o vídeo
+    }
+  });
+</script>
+
+</body>
+</html>
